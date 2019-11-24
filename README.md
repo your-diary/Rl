@@ -248,7 +248,7 @@ Input history of `rl`. At the start of a session, this file is automatically loa
 
 - [GNU Make](https://www.gnu.org/software/make/)
 
-### Installation
+### Build & Installation
 
 - `make`
 
