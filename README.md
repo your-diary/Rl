@@ -10,6 +10,8 @@
 
 Basically `rlwrap` has more functions than `rl`. However, `rlwrap` doesn't support some commands like `wolfram`, which is a command-line interface for `Mathematica` (see [here](https://reference.wolfram.com/language/ref/program/wolfram.html) for the detail), via `ssh`. `rl` is written to work with such commands, and it has a few original functionalities.
 
+`rl` is not a fork of `rlwrap`. It is written from scratch.
+
 ### Why use not a pipe but a pty?
 
 In the past, `rl` used a pipe to communicates with commands. However, some commands change their behavior if they detect (using `isatty(3)`) that the file descriptor associated with them doesn't refer to a terminal. For example, `wolfram` command exits right away when `SIGINT` signal is raised if its standard input isn't a terminal, though, when you use the command via a terminal (i.e. without any wrapper), it just suspends the calculation and waits for an additional input by a user to decide whether it should abort or resume calculation, which is (often) more ideal than the former behavior. See [Signal handler not working on process opened via pipe](https://stackoverflow.com/questions/57015738/signal-handler-not-working-on-process-opened-via-pipe) for the detail. So, at some point, the implementation was switched from a pipe to a pty (pseudo-terminal). Note that `rlwrap` also uses a pty.
