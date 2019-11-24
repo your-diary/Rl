@@ -105,7 +105,7 @@ NameError: name 'a' is not defined
 
 * `--title <title>`
 
-Set the terminal title. The word *terminal* here is irrelevant of the pty used by `rl`. It refers to the terminal in which you execute `rl`.
+Set the terminal title. The word *terminal* here is irrelevant to the pty used by `rl`. It refers to the terminal in which you execute `rl`.
 
 * `--dict <file name>`
 
