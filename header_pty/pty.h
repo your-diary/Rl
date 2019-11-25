@@ -79,7 +79,7 @@
 
                         //Create a new session and make myself the leader of the session.
                         //This is needed to allow Ctrl+c to send SIGINT only to the master (i.e. the parent process).
-                        //By default, signals are sent to both a parent and the child (see |https://unix.stackexchange.com/questions/176235/fork-and-how-signals-are-delivered-to-processes|).
+                        //By default, signals are sent to both a parent and the child because they belong to the same process group and pressing a key associated with a signal sends the signal to all of the processes of the foreground process group.
                         debug::debug_print(__func__, "(): Creating a new session, using `setsid()`.");
                         setsid();
 
@@ -137,6 +137,10 @@
                 int get_fd_master_() { //non-const to satisly the logical constness
                     return fd_master_;
                 }
+
+//                 pid_t get_pid_slave_() const {
+//                     return pid_slave_;
+//                 }
 
         };
 
