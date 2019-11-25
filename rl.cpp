@@ -253,7 +253,7 @@ tag_program_start:
         if (misc::has_caught_sigint) {
             debug::debug_print(__func__, "(): Sending SIGINT to the slave...");
             char sigint_string[2] = {'', '\0'};
-            fprintf(master, "%s", sigint_string);
+            fprintf(master, "%s\n", sigint_string);
             debug::debug_print(__func__, "(): SIGINT has been sent to the slave.");
             misc::has_caught_sigint = false;
             continue;
