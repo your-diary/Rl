@@ -306,6 +306,8 @@ tag_program_start:
 
     }
 
+    fclose(master);
+
     if (write_history(history_file_name.c_str()) != 0) {
         cout << "Couldn't write to the hsitory file [ " << history_file_name << " ].\n";
         return 1;
