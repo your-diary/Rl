@@ -124,9 +124,7 @@
                     debug::debug_print(__func__, "(): Canceling the read loop thread...");
 //                     pthread_kill(read_loop_thread_.native_handle(), SIGINT);
                     pthread_cancel(read_loop_thread_.native_handle());
-                    if (read_loop_thread_.joinable()) {
-                        read_loop_thread_.join();
-                    }
+                    read_loop_thread_.join();
 
                     //terminate the slave
                     debug::debug_print(__func__, "(): Killing the slave process...");
