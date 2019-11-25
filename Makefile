@@ -19,8 +19,6 @@ debug : $(binary_name)
 $(binary_name) : $(source_name) $(header_name)
     g++ -o $@ $(CXXFLAGS) $<
 
-debug : $(source_name) $(header_name)
-
 install : $(binary_name)
     $(if $(prefix),\
     mv $^ $(prefix),\
