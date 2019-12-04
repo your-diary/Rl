@@ -6,7 +6,8 @@ binary_name := rl.out
 source_name := rl.cpp
 header_name := header_pty/pty.h header/readline_helper.h header/misc.h header/parse_string.h header/debug.h
 
-CXXFLAGS := -pthread -lreadline
+CXXFLAGS := -pthread
+LDLIBS := -lreadline
 
 .PHONY: all debug install uninstall clean
 
@@ -17,7 +18,7 @@ debug : CXXFLAGS += -Og -g
 debug : $(binary_name)
 
 $(binary_name) : $(source_name) $(header_name)
-    g++ -o $@ $(CXXFLAGS) $<
+    g++ -o $@ $(CXXFLAGS) $< $(LDLIBS)
 
 install : $(binary_name)
     $(if $(prefix),\
