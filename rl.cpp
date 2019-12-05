@@ -3,10 +3,6 @@
 //See `README.md` for the specifications.
 //See `pty.h_structure.png` for the code structure.
 
-//history file is under === named ~~~
-
-//.inputrc recommended
-
 using namespace std;
 
 #include <iostream>
